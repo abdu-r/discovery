@@ -9,6 +9,10 @@ df = pd.read_csv('data/best_seller.csv')
 # print(df)
 # print('----------------------------------------------------------------------------------------------------------')
 
+print('---------------------------------- Get Statistics ------------------------------------------------------------------')
+print(df.describe())
+print('-----------------------------------------------------------------------------------------------------------------')
+
 # Remove unwanted coulumns
 df.drop(['Name', 'Genre'], axis=1, inplace=True)
 # print('------------------------------ Data Types after Removing Name and Genre columns -----------------------------')
@@ -47,10 +51,6 @@ df['Reviews'] = df['Reviews'].astype(int) # convert float to int
 # print('------------------------------ Check Data Types After Conversion -------------------------------------------------------')
 # print(df.dtypes)
 # print('------------------------------------------------------------------------------------------------------------------------')
-
-# Get some statistics
-#rint(df.describe)
-# print(df)
 
 
 
