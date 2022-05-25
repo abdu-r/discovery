@@ -1,20 +1,27 @@
 import pandas as pd
-import numpy as np
+import encrypt
+
+# Decrypt data file
+encryted_file_name = 'data/enc_best.csv'
+decryppted_file_name = 'data/best_dec.csv'
+key_file_name = 'data/enc.key'
+key = encrypt.get_key(key_file_name)
+encrypt.decrypt_file(key, encryted_file_name, decryppted_file_name)
 
 # Load data
-df = pd.read_csv('data/best_seller.csv')
+df = pd.read_csv('data/best_dec.csv')
 # check data types
 # print(df.dtypes)
 # print('------------------------------ Loaded Data ---------------------------------------------------------------')
-# print(df)
+# print(df.head(5))
 # print('----------------------------------------------------------------------------------------------------------')
 
-print('---------------------------------- Get Statistics ------------------------------------------------------------------')
-print(df.describe())
-print('-----------------------------------------------------------------------------------------------------------------')
+# print('---------------------------------- Get Statistics ------------------------------------------------------------------')
+# print(df.describe())
+# print('-----------------------------------------------------------------------------------------------------------------')
 
 # Remove unwanted coulumns
-df.drop(['Name', 'Genre'], axis=1, inplace=True)
+# df.drop(['Name', 'Genre'], axis=1, inplace=True)
 # print('------------------------------ Data Types after Removing Name and Genre columns -----------------------------')
 # print(df.dtypes)
 # print('-------------------------------------------------------------------------------------------------------------')
@@ -52,7 +59,13 @@ df['Reviews'] = df['Reviews'].astype(int) # convert float to int
 # print(df.dtypes)
 # print('------------------------------------------------------------------------------------------------------------------------')
 
+# Write compress file
+df.to_csv('data/result.csv.zip', index=False, compression='zip')
 
+# Encrypt compressed file
+# encrypted_output_file = 'data/enc_best_out.csv'
+# encrypt.encrypt_file(key, 'data/result.csv.zip', encrypted_output_file)
 
+# encrypt.decrypt_file(key, encrypted_output_file, 'data/final.csv.zip')
 
 
