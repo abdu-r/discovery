@@ -21,7 +21,7 @@ df = pd.read_csv('data/best_dec.csv')
 # print('-----------------------------------------------------------------------------------------------------------------')
 
 # Remove unwanted coulumns
-# df.drop(['Name', 'Genre'], axis=1, inplace=True)
+df.drop(['Name', 'Genre'], axis=1, inplace=True)
 # print('------------------------------ Data Types after Removing Name and Genre columns -----------------------------')
 # print(df.dtypes)
 # print('-------------------------------------------------------------------------------------------------------------')
